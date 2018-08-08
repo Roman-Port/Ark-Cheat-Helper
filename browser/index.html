@@ -1,0 +1,173 @@
+<html style="">
+<head>
+    <title>Ark Commander</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <style>
+        .main {
+            /* Main container for containing things */
+            background-color: white;
+            border-radius: 5px;
+            width: calc(50% - 0px);
+            margin: auto;
+            height: calc(50% - 0px);
+            margin-top: calc(25% / 2);
+            position: relative;
+            transition: all 100ms;
+            opacity: 1;
+        }
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #blur-bg {
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -ms-filter: blur(5px);
+            filter: blur(5px);
+        }
+
+        .main_content {
+            z-index: 5;
+            width: 75%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background-color: white;
+        }
+
+        .main_hidden {
+            opacity: 0;
+            margin-top: calc((25% / 2) + 40px);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .dino_list_container {
+            height: 100%;
+            border-right: 1px solid gray;
+            width: 50%;
+        }
+
+        .dino_list_search_area {
+            height: 50px;
+            width: 100%;
+            overflow:hidden;
+            position:relative;
+            border-bottom: 1px solid gray;
+        }
+
+        .dino_list_search_title {
+            position: absolute;
+            height:50px;
+            line-height:50px;
+            position:relative;
+            top:0;
+            transition:top 100ms ease-in;
+            margin-left:15px;
+        }
+
+        .dino_list_search_title_down {
+            top:-50px;
+        }
+
+        .dino_list_search_box {
+            position:absolute;
+            right:15px;
+            height:50px;
+            left:160px;
+        }
+
+
+
+        @keyframes dino_list_search_content_shift {
+            from {
+                left:-100%;
+            }
+
+            to {
+                left:-100%;
+            }
+        }
+
+
+        .dino_list {
+            overflow-y: scroll;
+            height: calc(100% - 51px);
+        }
+
+        .dino_list_element td {
+            
+            padding-right: 5px;
+        }
+
+        .dino_list_element {
+            border-bottom: 1px solid gray;
+        }
+
+        .dino_list_element_btns {
+            padding-right: 0;
+            float:right;
+        }
+
+        .input_container {
+            display: inline-block;
+            margin: 10px;
+            background-color: #484848;
+            color: white;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+            transition: border 130ms;
+            position: relative;
+            top: 0px;
+            border: 2px solid #484848;
+            padding:3px;
+            height:30px;
+            width:100%;
+        }
+
+        .input_container input {
+            width:100%;
+            height:30px;
+        }
+    </style>
+</head>
+    <body>
+        <div class="main main_hidden" id="main">
+            <img src="" style="width:100%; height:100%;" id="blur-bg" />
+            <div class="main_content">
+
+
+                <!-- Dino List -->
+                <div class="dino_list_container">
+                    <!-- Search -->
+                    <div class="dino_list_search_area" onclick="ShiftMenu();">
+                        <div class="dino_list_search_title" id="menu-shifter">
+                            <div>Dinosaurs</div>
+                            <div>Items</div>
+                        </div>
+                        <div class="dino_list_search_box">
+                            <div class="input_container">
+                                <input type="text" placeholder="Start Typing" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content for search -->
+                    <div class="dino_list" id="dino_list"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/native.js"></script>
+        <script src="assets/main.js"></script>
+
+
+    </body>
+</html>
